@@ -1,0 +1,53 @@
+<div class="container">
+<table class="table table-striped mt-4">
+            <thead>
+                <tr>
+                    
+                    <th scope="col">Order Date</th>
+                    <th scope="col">Delivery Date</th>
+                    <th scope="col">User Id</th>
+                    <th scope="col">Order Id</th>
+                    <th scope="col">Payment Method</th>
+                    <th scope="col">Total Amount</th>
+                    <th scope="col">Status</th>
+                    <th scope="col"></th>
+                    
+                </tr>
+            </thead>
+            <tbody>
+                {{#each orders}}
+                <tr>
+                    
+                    <td>{{this.date}}</td>
+                    <td>{{this.dateOfDelivery}}</td>
+                    <td>{{this.userId}}</td>
+                    <td>{{this._id}}</td>
+                    <td>{{this.paymentMethod}}</td>
+                    <td>{{this.totalPrice}}</td>
+                    <td><p id="{{this._id}}">{{this.status}}</p></td>
+                    <td>
+                        <button onclick="changeStatus('{{this._id}}')" class="btn btn-success">Mark as shipped</b>
+                    </td>
+                    
+                    
+                </tr>
+                {{/each}}
+                
+            </tbody>
+</table>
+</div>
+
+<script>
+    function changeStatus(orderId){
+        $.ajax({
+            url:'/admin/shipped/'+orderId,
+            method:'post',
+            success:(response)=>{
+                document.getElementById(orderId).innerHTML = 'shipped'
+
+                
+            }
+        })
+    }
+</script>
+

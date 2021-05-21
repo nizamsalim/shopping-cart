@@ -1,0 +1,38 @@
+<section>
+<div class="row">
+  <div class="col-md-6 m-auto">
+    <div class="container mt-5 pl-5">
+      <h2 class="text-center">Create New Account</h2>
+      <form action="/signup" method="post" autocomplete="off">
+        <div class="form-group mb-3">
+          <label for="">Name</label>
+          <input type="text" class="form-control" name="name">
+        </div>
+        <div class="form-group mb-3">
+          <label for="">Email</label>
+          <input type="email" class="form-control" name="email">
+        </div>
+        <div class="form-group mb-3">
+          <label for="">Password</label>
+          <input type="password" class="form-control" name="password" id='pwd'>
+          <input type="checkbox" onclick="togglePassword()" >
+          <label for="showPwd">Show Password</label>
+        </div>
+        <a href="/login" >Already have an account?</a> <br>
+        <button type="submit" class="btn btn-primary float-right mt-3 w-100">Log In</button>
+      </form>
+    </div>
+  </div>
+</div>
+</section>
+
+<script>
+  function togglePassword(){
+    var inp = document.getElementById('pwd')
+    if(inp.type === 'password'){
+      inp.type = 'text'
+    }else{
+      inp.type = 'password'
+    }
+  }
+</script>

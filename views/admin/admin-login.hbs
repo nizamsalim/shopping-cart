@@ -1,0 +1,40 @@
+<section>
+<div class="row">
+  <div class="col-md-6 m-auto">
+    <div class="container mt-5 pl-5">
+      <h2 class="text-center">ADMIN LOGIN</h2>
+      <form action="/admin" method="POST" autocomplete="off">
+      
+        <div class="form-group mb-3">
+          <label for="">Username</label>
+          <input type="text" class="form-control" name="username" autofocus>
+          
+        </div>
+        <div class="form-group mb-3">
+          <label for="pwd">Password</label>
+          <input type="password" class="form-control" name="password" id="pwd">
+          <input type="checkbox" onclick="togglePassword()" id="showPwd">
+          <label for="showPwd">Show Password</label>
+        </div>
+        {{#if loginErr}}
+        <p class="text-danger">Invalid username or password</p>
+        {{/if}}
+        
+        <button type="submit" class="btn btn-primary float-right mt-3 w-100">Log In</button>
+      
+      </form>
+    </div>
+  </div>
+</div>
+</section>
+
+<script>
+  function togglePassword(){
+    var inp = document.getElementById('pwd')
+    if(inp.type === 'password'){
+      inp.type = 'text'
+    }else{
+      inp.type = 'password'
+    }
+  }
+</script>

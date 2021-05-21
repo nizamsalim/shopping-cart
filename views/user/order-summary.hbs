@@ -1,0 +1,48 @@
+<h2 class="text-center mt-4">Order Summary</h2>
+<a href="/orders" class="ms-3 mb-3">Back to Orders</a>
+{{#each orders}}
+<div class="container">
+    <div class="row d-flex justify-content-center">
+        {{#each products}}
+        <div class="col-lg-3 col-md-4 col-sm-6 col-12 p-3">
+            
+            <div class="card" style="height:27em">
+                <img src="/images/product-images/{{this.product._id}}.jpg" style="height:20em" class="card-img-top p-3" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title text-center">{{this.product.name}}</h5>
+                    <p class="card-text ">Rs . {{this.product.price}} <br> 
+                    No. of units : {{this.quantity}}</p>
+                    <p class="cart-text"></p>
+                    
+                </div>
+            </div>
+
+        </div>
+        {{/each}}
+       
+        
+    </div>
+    <hr>
+    <div class="row">
+        
+        <div class="col-md-6" style="border-right: solid 1px rgba(0,0,0,0.1);">
+            <h5 class="">
+                <u>Delivering to:</u> <br><br>
+                {{../user.name}} <br><br>
+                {{this.deliveryDetails.address}} <br><br>
+                Pin : {{this.deliveryDetails.pin}} <br><br>
+                {{this.deliveryDetails.state}}
+            </h5>
+            <br>
+            
+        </div>
+        <div class="col-md-6 ">
+            <h5 class="mt-4 me-3">Payment Method : {{this.paymentMethod}}</h5> <br>
+            <h5 class="">ORDER Status : {{this.status}}</h5>
+            <h3 class="mt-4 me-3">Total Amount : Rs. {{this.totalPrice}}</h3>
+            
+        </div>
+        
+    </div>   
+</div>
+{{/each}}

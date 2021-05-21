@@ -1,0 +1,54 @@
+<section>
+    <div class="container">
+    <table class="table mt-4" >
+            <thead>
+                <tr style="font-size: 1.3em;">
+                    <th scope="col">Order ID</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Delivery Date</th>
+                    <th scope="col">Payment Method</th>
+                    <th scope="col">Total Amount</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">
+                        
+                    </th>
+                    
+                    
+                </tr>
+            </thead>
+            <tbody>
+                {{#each orders}}
+                <tr>
+                    <td>{{this._id}}</td>
+                    <td>{{this.date}}</td>
+                    <td>{{this.dateOfDelivery}}</td>
+                    <td>{{this.paymentMethod}}</td>
+                    <td>{{this.totalPrice}}</td>
+                    <td>{{this.status}}</td>
+                    <td>
+                      <a class="btn btn-success" href="/order-summary/{{this._id}}">Order Summary</a>
+                    </td>
+                      
+                        
+                    
+                </tr>
+                {{/each}}
+
+                    
+                      
+
+                    
+                    
+                    
+                    
+                
+                
+            </tbody>
+</table>
+                
+</div>
+</section>
+
+
+
+

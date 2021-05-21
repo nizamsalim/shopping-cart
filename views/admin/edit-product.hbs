@@ -1,0 +1,74 @@
+<section>
+    <div class="container mt-4">
+        <h1 class="text-center">Edit Product</h1>
+        <div class="col-md-12">
+            <form action="/admin/edit-product/{{product._id}}" class="needs-validation" enctype="multipart/form-data" method="POST" novalidate autocomplete="off">
+            
+            <div class="mb-3">
+                <label for="inputName" class="form-label">Name</label>
+                <input type="text" class="form-control border border-success" id="inputName" name="name" 
+                placeholder="Name of product" required value="{{product.name}}">
+                <div class="invalid-feedback">Please enter name of product</div>
+            </div>
+            <div class="mb-3">
+                <label for="inputCategory" class="form-label">Category</label>
+                <input type="text" class="form-control border border-success" id="inputCategory" name="category" 
+                placeholder="Category" required value="{{product.category}}">
+                <div class="invalid-feedback">Please enter category</div>
+            </div>
+            <div class="mb-3">
+                <label for="inputDesc" class="form-label">Description of product</label>
+                <input type="text" class="form-control border border-success" id="inputDesc" name="desc" 
+                placeholder="Description of item" required value="{{product.desc}}">
+                <div class="invalid-feedback">Please provide description</div>
+            </div>
+            <div class="mb-3">
+                <label for="inputPrice" class="form-label">Price</label>
+                <input type="text" class="form-control border border-success" id="inputPrice" name="price" 
+                placeholder="Price" required value="{{product.price}}">
+                <div class="invalid-feedback">Please enter price</div>
+            </div>
+            <div class="mb-3">
+                <label for="inputImage" class="form-label">Image</label>
+                <img src="/images/product-images/{{product._id}}.jpg" alt="" style="width: 100px;height:auto" id="imgView">
+                <input type="file" class="form-control border border-success" id="inputImage" name="image" onchange="viewImg(event)">
+                <div class="invalid-feedback">Please upload image</div>
+                <div class="form-text">Image size : 300*150px , Format : .jpg </div>
+            </div>
+            <div class="mb-3 mt-4 d-flex justify-content-center">
+                <input type="submit" value="Update" class="btn btn-success w-50">
+            </div>
+            
+            </form>
+        </div>
+    </div>
+</section>
+
+<script>
+    function viewImg(event){
+        document.getElementById('imgView').src = URL.createObjectURL(event.target.files[0]);
+    }
+</script>
+
+<script>
+    // Example starter JavaScript for disabling form submissions if there are invalid fields
+        (function () {
+            'use strict'
+
+            // Fetch all the forms we want to apply custom Bootstrap validation styles to
+            var forms = document.querySelectorAll('.needs-validation')
+
+            // Loop over them and prevent submission
+            Array.prototype.slice.call(forms)
+                .forEach(function (form) {
+                    form.addEventListener('submit', function (event) {
+                        if (!form.checkValidity()) {
+                            event.preventDefault()
+                            event.stopPropagation()
+                        }
+
+                        form.classList.add('was-validated')
+                    }, false)
+                })
+        })()
+</script>
